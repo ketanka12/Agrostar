@@ -1,0 +1,9 @@
+flask
+flask_cors
+flask_sqlalchemy
+requests
+pymysql
+cryptography
+gunicorn
+python-dotenv
+ollama

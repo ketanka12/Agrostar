@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroStar</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h2,
+        h3,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #656565;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        #product-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .product {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+            border-radius: 5px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+        }
+
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        .box {
+            width: 500px;
+            height: 400px;
+            margin: auto;
+            /* display: flex;
+        justify-content: center;
+        align-items: center; */
+            border-radius: 1px solid black;
+
+            background-image: url("./../folder1/1.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+            transition: all 1s linear;
+
+
+        }
+
+        .tc {
+            margin: auto;
+            display: flex;
+            /* justify-content: space-between; */
+            justify-content: space-evenly;
+        }
+
+        .dot {
+            width: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .circule {
+            background-color: gray;
+            width: 5px;
+            height: 5px;
+            border-radius: 5px;
+
+        }
+
+        .active-circle {
+            border: 1px solid red;
+            padding: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to AgroStar
+
+        </h1>
+        <nav>
+            <ul>
+                <li><a href="products.html">Home</a></li>
+
+
+        </nav>
+    </header>
+    <main class="">
+        <h2 class="tc">Agrostar 3221 wheat seeds</h2>
+        <div class="box" id="slide">
+
+        </div>
+        <div class="tc">
+            <button onclick="next()">Next</button>
+            <div class="dot">
+                <div class="circule active-circle"></div>
+                <div class="circule"></div>
+                <div class="circule"></div>
+                <div class="circule"></div>
+                <div class="circule"></div>
+            </div>
+            <button onclick="back()">Back</button>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AgroStar. All rights reserved.</p>
+
+    </footer>
+
+
+    <script>
+        "user stricts"
+        const slide = document.getElementById("slide")
+        let dotList = document.getElementsByClassName("circule")
+
+
+
+        let UrlList = ["12.png", "1.jpg", "2.jpg", "3.jpg", "4.jpg"]
+
+        let countindex = 0
+        function next() {
+
+
+            dotList[countindex].classList.toggle("active-circle")
+
+            countindex++;
+            if (UrlList.length <= countindex) {
+                countindex = 0
+            }
+
+
+            let giveMeimageName = UrlList[countindex]
+
+            // console.log(dotList);
+
+            dotList[countindex].classList.toggle("active-circle")
+
+            slide.style.backgroundImage = `url("./../folder1/${giveMeimageName}")`;
+
+        }
+
+
+        function back() {
+
+
+            countindex--;
+            if (UrlList.length >= countindex) {
+                countindex = 0
+            }
+
+
+            let giveMeimageName = UrlList[countindex]
+
+            slide.style.backgroundImage = `url("./../folder1/${giveMeimageName}")`;
+
+        }
+
+        setInterval(() => {
+            next();
+        }, 1000)
+
+    </script>
+</body>
+
+</html>

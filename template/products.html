@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgroStar - Products</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        /* Reset some default styles */
+    
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            color: #4CAF50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Agro Products</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Category</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Wheat</td>
+                <td>Cereal</td>
+                <td>A staple food used for making bread and pasta.</td>
+            </tr>
+            <tr>
+                <td>Tomato</td>
+                <td>Vegetable</td>
+                <td>A juicy fruit used in salads, sauces, and soups.</td>
+            </tr>
+            <tr>
+                <td>Rice</td>
+                <td>Cereal</td>
+                <td>A staple food in many cultures, often served with meals.</td>
+            </tr>
+            <tr>
+                <td>Milk</td>
+                <td>Dairy</td>
+                <td>A nutritious liquid produced by mammals, commonly used in cooking.</td>
+            </tr>
+            <tr>
+                <td>Honey</td>
+                <td>Sweetener</td>
+                <td>A natural sweet substance made by bees from flower nectar.</td>
+            </tr>
+            <tr>
+                <td>Carrot</td>
+                <td>Vegetable</td>
+                <td>A root vegetable commonly used in salads and soups.</td>
+            </tr>
+            <tr>
+                <td>Potato</td>
+                <td>Vegetable</td>
+                <td>A starchy tuber used in a wide variety of dishes.</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+</body>
+</html>

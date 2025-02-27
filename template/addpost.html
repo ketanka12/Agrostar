@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url(./../static/bootstrap-5.3.3-dist/css/bootstrap.min.css);
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="text-center">Add Products</h3>
+                    </div>
+                    <div class="card-body">
+                        <form id="myform">
+                            <!-- Tile -->
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Products name</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" required>
+
+                            </div>
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">price</label>
+                                <input type="count" class="form-control" id="price" name="price" required>
+                            </div>
+
+
+
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Category</label>
+                                <input type="text" class="form-control" id="fullName" name="fullName" required>
+                            </div>
+
+
+                           
+                            <!-- <button type="submit" class="btn btn-primary w-100">Submit Post</button> -->
+                            <a href="products.html"> <button type="submit" class="btn btn-primary w-100">Submit Post</button></a>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        "use strict";
+
+        async function send_Req(url, body, methode) {
+
+            const response = await fetch(url, {
+                body: JSON.stringify(body),
+                method: methode,
+                headers: { "content-type": "application/json" }
+
+            });
+
+            return response.json()
+
+        }
+
+       
+        let url = "http://127.0.0.1:5000/post"
+
+
+
+        let form = document.getElementById("myform");
+
+        form.addEventListener("submit", (e) => {
+
+            e.preventDefault()
+
+            let price = e.target[1].value
+            let Category= e.target[2].value
+
+
+            
+
+
+            let m = "POST"
+            let b = {
+                "name":name,
+                "price": price,
+                "category": Category,
+            }
+            
+
+            send_Req(url, b, m).then((res) => {
+                console.log(res)
+
+
+                if (res.msg == "Post is created") {
+                    alert("Post is is Created")
+                    window.location.assign("/")
+
+
+              }
+            })
+
+
+
+
+
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
